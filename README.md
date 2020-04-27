@@ -1,7 +1,7 @@
 # SpringBoot-H2-Database
 
 
-Change login H2 url to 
+# Change login H2 url to 
 
 jdbc:h2:mem:testdb
 
@@ -42,10 +42,11 @@ jdbc:h2:mem:testdb
 # logging, log4j, logback
 
 
-  LOGGER.debug("This is a debug message");
+        LOGGER.debug("This is a debug message");
   
 	LOGGER.info("This is an info message");
   
 	LOGGER.warn("This is a warn message");
   
 	LOGGER.error("This is an error message");
+
