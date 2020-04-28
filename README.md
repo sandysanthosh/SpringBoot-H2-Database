@@ -50,3 +50,7 @@ jdbc:h2:mem:testdb
   
 	LOGGER.error("This is an error message");
 
+
+
+
+<a href="http://starwalt.in/Blogs/index.html">Follow us on Blog</a>
