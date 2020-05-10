@@ -1,4 +1,8 @@
-# SpringBoot-H2-Database
+# SpringBoot-H2-Database:
+
+192.168.0.105:8082/login.jsp?jsessionid=57ffec2d5129387e3198173cfe74194a
+
+install h2 console
 
 
 # Change login H2 url to 
