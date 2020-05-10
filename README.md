@@ -5,6 +5,83 @@
 install h2 console
 
 
+CREATE TABLE CUSTOMER (id number, name varchar(20), age number, address varchar(20), 
+salary number);  
+
+INSERT into CUSTOMER values (1, 'Ramesh', 32, 'Ahmedabad', 2000); 
+INSERT into CUSTOMER values (2, 'Khilan', 25, 'Delhi', 1500); 
+INSERT into CUSTOMER values (3, 'kaushik', 23, 'Kota', 2000); 
+INSERT into CUSTOMER values (4, 'Chaitali', 25, 'Mumbai', 6500); 
+INSERT into CUSTOMER values (5, 'Hardik', 27, 'Bhopal', 8500); 
+INSERT into CUSTOMER values (6, 'Komal', 22, 'MP', 4500); 
+INSERT into CUSTOMER values (7, 'Muffy', 24, 'Indore', 10000);
+
+H2 in JDBC:
+
+	import java.sql.Connection; 
+	import java.sql.DriverManager; 
+	import java.sql.SQLException; 
+	import java.sql.Statement;  
+
+	public class H2jdbcCreateDemo { 
+	   // JDBC driver name and database URL 
+	   static final String JDBC_DRIVER = "org.h2.Driver";   
+	   static final String DB_URL = "jdbc:h2:~/test";  
+
+	   //  Database credentials 
+	   static final String USER = "sa"; 
+	   static final String PASS = ""; 
+
+	   public static void main(String[] args) { 
+	      Connection conn = null; 
+	      Statement stmt = null; 
+	      try { 
+		 // STEP 1: Register JDBC driver 
+		 Class.forName(JDBC_DRIVER); 
+
+		 //STEP 2: Open a connection 
+         System.out.println("Connecting to database..."); 
+         conn = DriverManager.getConnection(DB_URL,USER,PASS);  
+         
+         //STEP 3: Execute a query 
+         System.out.println("Creating table in given database..."); 
+         stmt = conn.createStatement(); 
+         String sql =  "CREATE TABLE   REGISTRATION " + 
+            "(id INTEGER not NULL, " + 
+            " first VARCHAR(255), " +  
+            " last VARCHAR(255), " +  
+            " age INTEGER, " +  
+            " PRIMARY KEY ( id ))";  
+         stmt.executeUpdate(sql);
+         System.out.println("Created table in given database..."); 
+         
+         // STEP 4: Clean-up environment 
+         stmt.close(); 
+         conn.close(); 
+      } catch(SQLException se) { 
+         //Handle errors for JDBC 
+         se.printStackTrace(); 
+      } catch(Exception e) { 
+         //Handle errors for Class.forName 
+         e.printStackTrace(); 
+      } finally { 
+         //finally block used to close resources 
+         try{ 
+            if(stmt!=null) stmt.close(); 
+         } catch(SQLException se2) { 
+         } // nothing we can do 
+         try { 
+            if(conn!=null) conn.close(); 
+         } catch(SQLException se){ 
+            se.printStackTrace(); 
+         } //end finally try 
+      } //end try 
+      System.out.println("Goodbye!");
+   } 
+}
+
+
+
 # Change login H2 url to 
 
 jdbc:h2:mem:testdb
