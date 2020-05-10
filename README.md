@@ -1,20 +1,18 @@
 # SpringBoot-H2-Database:
 
-192.168.0.105:8082/login.jsp?jsessionid=57ffec2d5129387e3198173cfe74194a
-
-install h2 console
 
 
-CREATE TABLE CUSTOMER (id number, name varchar(20), age number, address varchar(20), 
-salary number);  
+Install h2 console:
 
-INSERT into CUSTOMER values (1, 'Ramesh', 32, 'Ahmedabad', 2000); 
-INSERT into CUSTOMER values (2, 'Khilan', 25, 'Delhi', 1500); 
-INSERT into CUSTOMER values (3, 'kaushik', 23, 'Kota', 2000); 
-INSERT into CUSTOMER values (4, 'Chaitali', 25, 'Mumbai', 6500); 
-INSERT into CUSTOMER values (5, 'Hardik', 27, 'Bhopal', 8500); 
-INSERT into CUSTOMER values (6, 'Komal', 22, 'MP', 4500); 
-INSERT into CUSTOMER values (7, 'Muffy', 24, 'Indore', 10000);
+   run in local -> 192.168.0.105:8082/login.jsp?jsessionid=57ffec2d5129387e3198173cfe74194a
+
+		CREATE TABLE CUSTOMER (id number, name varchar(20), age number, address varchar(20), 
+		salary number);  
+
+		INSERT into CUSTOMER values (1, 'Ramesh', 32, 'Ahmedabad', 2000); 
+
+		INSERT into CUSTOMER values (2, 'Khilan', 25, 'Delhi', 1500); 
+
 
 H2 in JDBC:
 
@@ -117,6 +115,40 @@ jdbc:h2:mem:testdb
 @Positive	The annotated element must be a strictly positive number.
 
 @Size	The annotated element size must be between the specified boundaries (included).
+
+Query:
+
+
+Delete the table if it exists:
+
+	DROP TABLE IF EXISTS TEST;
+	
+Create a new table with ID and NAME columns:
+
+  	CREATETABLE TEST(ID INT PRIMARY KEY,  NAME VARCHAR(255));
+	
+Add a new row:
+
+	INSERT INTO TEST VALUES(1, 'Hello');
+	
+Add another row:
+
+	INSERT INTO TEST VALUES(2, 'World');
+	
+Query the table:
+
+	SELECT * FROM TEST ORDER BY ID;
+	
+Change data in a row:
+	
+	UPDATE TEST SET NAME='Hi' WHERE ID=1;
+	
+Remove a row:
+
+	DELETE FROM TEST WHERE ID=2;
+
+
+
 
 
 
